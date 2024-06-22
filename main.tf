@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
   for_each = var.rgs
-  name     = "demorg"
+  name     = each.value
   location = "West Europe"
 }
