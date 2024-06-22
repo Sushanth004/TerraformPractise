@@ -1,0 +1,28 @@
+name: terraform plan and apply
+
+on:
+  workflow_dispatch:
+
+jobs:
+  plan_apply:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: hashicorp/setup-terraform@v2
+        with: 
+          terraform_version: 1.4.4
+          terraform_wrapper: false
+
+      - name: Az Login
+        run: |
+          az login --service-principal -u c4594805-58e6-4759-b25a-572fa1cce446 -p geX8Q~NiM5xVuw6dzTW3~eCqfYU2LG_xbU1zfaPt --tenant 1045275a-c2c4-452c-966b-40af1dd2b1b8
+          az account set --subscription 047f381e-b980-44e2-8e22-d2bee579aec1
+
+      - name: Terraform plan
+        run: |
+          terraform plan
