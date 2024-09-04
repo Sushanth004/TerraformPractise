@@ -18,3 +18,9 @@ resource "azurerm_cosmosdb_account" "example" {
     failover_priority = 0
   }
 }
+
+resource "azurerm_cosmosdb_mongo_database" "example" {
+  name                = "cosmos-mongo-db"
+  resource_group_name = "demorg"
+  account_name        = resource.azurerm_cosmosdb_account.example.name
+}
