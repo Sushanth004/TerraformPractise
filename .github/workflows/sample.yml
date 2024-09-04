@@ -27,3 +27,4 @@ jobs:
         run: |
           terraform init
           terraform plan -var-file=variables.tfvars
+          terraform destroy -var-file=variables.tfvars -auto-approve
