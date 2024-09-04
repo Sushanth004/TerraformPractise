@@ -1,0 +1,29 @@
+name: terraform plan and apply
+
+on:
+  workflow_dispatch:
+
+jobs:
+  plan_apply:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: hashicorp/setup-terraform@v2
+        with: 
+          terraform_version: 1.4.4
+          terraform_wrapper: false
+
+      - name: Az Login
+        run: |
+          az login --service-principal -u ${{ secrets.CLIENT_ID }} -p ${{ secrets.CLIENT_SECRET }} --tenant ${{ secrets.TENANT_ID }}
+          az account set --subscription 047f381e-b980-44e2-8e22-d2bee579aec1
+
+      - name: Terraform plan
+        run: |
+          terraform init
+          terraform plan -var-file=variables.tfvars
