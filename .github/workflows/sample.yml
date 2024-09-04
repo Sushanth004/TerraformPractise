@@ -1,4 +1,4 @@
-name: terraform plan and apply
+name: Cosmos Account and DB
 
 on:
   workflow_dispatch:
