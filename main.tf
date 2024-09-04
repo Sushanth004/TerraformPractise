@@ -1,7 +1,7 @@
 resource "azurerm_cosmosdb_account" "example" {
   name                  = "cosmosacc004"
   location              = "East US"
-  resource_group_name   = demorg
+  resource_group_name   = "demorg"
   offer_type            = "Standard"
   kind                  = "MongoDB"
 
