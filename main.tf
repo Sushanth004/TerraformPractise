@@ -34,9 +34,4 @@ resource "azurerm_cosmosdb_mongo_collection" "example" {
   default_ttl_seconds = "777"
   shard_key           = "uniqueKey"
   throughput          = 400
-
-  index {
-    keys   = ["_id"]
-    unique = true
-  }
 }
