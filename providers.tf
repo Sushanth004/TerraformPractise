@@ -10,14 +10,14 @@ terraform {
       storage_account_name = "terraformstate0044"
       container_name       = "tfstatefiles"
       key                  = "terraform.tfstate"
-      access_key           = "401ABa1+mw1Knor0KUO6a8Ws9S5YoUBnlRXbAyzLpr32JwwUA7W7CU+peU5nMGWQ6hHWLFuD69rG+AStuuGeaA=="
+      access_key           = "5PU1Nz3ThrScUzOy7t48uq64CfoPme699pBXKV5l00B2mJHazWwDnDvs4tRlsel4HxBI4fbbxiMJ+AStqe9heA=="
   }
 }
 
 provider "azurerm" {
-  subscription_id = "047f381e-b980-44e2-8e22-d2bee579aec1"
-  client_id = "260d9d50-326a-4f32-a1ed-54f004917d97"
-  client_secret = "tzN8Q~OAaPjFahd42Myl~I3CHsfEst9y0_fNAbhC"
-  tenant_id = "1045275a-c2c4-452c-966b-40af1dd2b1b8"
+  subscription_id = "52217894-3376-4b62-817e-8c6ab2e1e1d2"
+  client_id = "e5be2995-aed8-4608-96af-843032cdc4d3"
+  client_secret = "GHn8Q~Q6YB3xKVQX6Bry7rQQsbedf.~QNLxpydeq"
+  tenant_id = "679d0ee1-0b65-451d-8740-b1b0991fc8fb"
   features {}
 }
