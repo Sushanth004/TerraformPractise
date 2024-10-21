@@ -1,5 +1,5 @@
 resource "azurerm_cosmosdb_account" "example" {
-  name                  = "cosmosacc004"
+  name                  = "cosmosacc0044"
   location              = "East US"
   resource_group_name   = "demorg"
   offer_type            = "Standard"
