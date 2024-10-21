@@ -21,7 +21,7 @@ jobs:
       - name: Az Login
         run: |
           az login --service-principal -u ${{ secrets.CLIENT_ID }} -p ${{ secrets.CLIENT_SECRET }} --tenant ${{ secrets.TENANT_ID }}
-          az account set --subscription 047f381e-b980-44e2-8e22-d2bee579aec1
+          az account set --subscription 52217894-3376-4b62-817e-8c6ab2e1e1d2
 
       - name: Terraform plan
         run: |
