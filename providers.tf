@@ -7,7 +7,7 @@ terraform {
   }
   backend "azurerm" {
       resource_group_name  = "demorg"
-      storage_account_name = "terraformstate004"
+      storage_account_name = "terraformstate0044"
       container_name       = "tfstatefiles"
       key                  = "terraform.tfstate"
       access_key           = "401ABa1+mw1Knor0KUO6a8Ws9S5YoUBnlRXbAyzLpr32JwwUA7W7CU+peU5nMGWQ6hHWLFuD69rG+AStuuGeaA=="
