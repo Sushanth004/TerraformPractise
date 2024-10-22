@@ -48,7 +48,7 @@ resource "azurerm_cosmosdb_mongo_collection" "example" {
     keys = ["code"]
   }
 
-  lifecycle {
-    ignore_changes = [index]
-  }
+ # lifecycle {
+ #   ignore_changes = [index]
+ # }
 }
