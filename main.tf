@@ -25,14 +25,14 @@ resource "azurerm_cosmosdb_mongo_database" "example" {
   account_name        = resource.azurerm_cosmosdb_account.example.name
 }
 
-resource "azurerm_cosmosdb_mongo_collection" "example" {
-  name                = "cosmos-mongo-db-collection"
-  resource_group_name = "demorg"
-  account_name        = resource.azurerm_cosmosdb_account.example.name
-  database_name       = resource.azurerm_cosmosdb_mongo_database.example.name
-  autoscale_settings {
-    max_throughput = 4000
-  }
+#resource "azurerm_cosmosdb_mongo_collection" "example" {
+#  name                = "cosmos-mongo-db-collection"
+#  resource_group_name = "demorg"
+#  account_name        = resource.azurerm_cosmosdb_account.example.name
+#  database_name       = resource.azurerm_cosmosdb_mongo_database.example.name
+#  autoscale_settings {
+#    max_throughput = 4000
+#  }
 
-  shard_key           = "uniqueKey"
-}
+#  shard_key           = "uniqueKey"
+#}
