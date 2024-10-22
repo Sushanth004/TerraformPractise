@@ -41,7 +41,7 @@ resource "azurerm_cosmosdb_mongo_collection" "example" {
   }
 
   index {
-    keys = ["$**"]
+    keys = ["$*"]
   }
 
   lifecycle {
