@@ -42,7 +42,7 @@ jobs:
 
       - name: create collection
         run: |
-          sh cosmoscollection.sh
+          sh cosmoscollections.sh
 
       # - name: Terraform destroy
       #   run: |
