@@ -32,18 +32,19 @@ jobs:
       #   run: |
       #     terraform apply -var-file=variables.tfvars -auto-approve
 
-      - name: Create cosmos collections
-        env:
-           PYTHONPATH: ${{ github.workspace }}/
-        run: |
-          from cosmoscollections import stratosphere_cosmos_collections
-          for stratosphere_cosmos_collection in stratosphere_cosmos_collections:
-            az cosmosdb mongodb collection create -g demorg -a stratosphere_cosmos_collection['account_name'] -d stratosphere_cosmos_collection['database_name'] -n stratosphere_cosmos_collection['collection_name'] --shard stratosphere_cosmos_collection['shard_key'] --max-throughput stratosphere_cosmos_collection['max_ru']
-        shell: python
-
-      # - name: create collection
+      # - name: Create cosmos collections
+      #   env:
+      #      PYTHONPATH: ${{ github.workspace }}/
       #   run: |
-      #     az cosmosdb mongodb collection create -g demorg -a "cosmosacc0044" -d "cosmos-mongo-db" -n "collectionB" --shard "tenantA" --idx "[{\"key\": {\"keys\": [\"\$**\"]}}]" --max-throughput "4000"
+      #     from cosmoscollections import stratosphere_cosmos_collections
+      #     for stratosphere_cosmos_collection in stratosphere_cosmos_collections:
+      #       az cosmosdb mongodb collection create -g demorg -a stratosphere_cosmos_collection['account_name'] -d stratosphere_cosmos_collection['database_name'] -n stratosphere_cosmos_collection['collection_name'] --shard stratosphere_cosmos_collection['shard_key'] --max-throughput stratosphere_cosmos_collection['max_ru']
+      #   shell: python
+
+      - name: create collection
+        run: |
+          az cosmosdb mongodb collection create -g demorg -a stratosphere_cosmos_collection['account_name'] -d stratosphere_cosmos_collection['database_name'] -n stratosphere_cosmos_collection['collection_name'] --shard stratosphere_cosmos_collection['shard_key'] --max-throughput stratosphere_cosmos_collection['max_ru']
+          # az cosmosdb mongodb collection create -g demorg -a "cosmosacc0044" -d "cosmos-mongo-db" -n "collectionB" --shard "tenantA" --idx "[{\"key\": {\"keys\": [\"\$**\"]}}]" --max-throughput "4000"
 
       # - name: Terraform destroy
       #   run: |
