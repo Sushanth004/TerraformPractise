@@ -32,6 +32,6 @@ jobs:
       #   run: |
       #     terraform apply -var-file=variables.tfvars -auto-approve
 
-      # - name: Terraform destroy
-      #   run: |
-      #     terraform destroy -var-file=variables.tfvars -auto-approve
+      - name: Terraform destroy
+        run: |
+          terraform destroy -var-file=variables.tfvars -auto-approve
