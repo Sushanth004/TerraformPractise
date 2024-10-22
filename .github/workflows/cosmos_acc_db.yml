@@ -32,13 +32,17 @@ jobs:
       #   run: |
       #     terraform apply -var-file=variables.tfvars -auto-approve
 
-      - name: Create cosmos collections
-        env:
-           PYTHONPATH: ${{ github.workspace }}/
+      # - name: Create cosmos collections
+      #   env:
+      #      PYTHONPATH: ${{ github.workspace }}/
+      #   run: |
+      #     from cosmoscollections import stratosphere_cosmos_collections
+      #     az cosmosdb mongodb collection create -g demorg -a "cosmosacc0044" -d "cosmos-mongo-db" -n "collectionB" --shard "tenantA" --max-throughput "4000"
+      #   shell: python
+
+      - name: create collection
         run: |
-          from cosmoscollections import stratosphere_cosmos_collections
           az cosmosdb mongodb collection create -g demorg -a "cosmosacc0044" -d "cosmos-mongo-db" -n "collectionB" --shard "tenantA" --max-throughput "4000"
-        shell: python
 
       # - name: Terraform destroy
       #   run: |
