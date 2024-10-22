@@ -46,6 +46,7 @@ jobs:
       - name: create collection
         run: |
           cat cosmoscollections.sh
+          sh cosmoscollections.sh
 
       # - name: Terraform destroy
       #   run: |
