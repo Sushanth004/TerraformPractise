@@ -23,30 +23,30 @@ jobs:
           az login --service-principal -u ${{ secrets.CLIENT_ID }} -p ${{ secrets.CLIENT_SECRET }} --tenant ${{ secrets.TENANT_ID }}
           az account set --subscription 52217894-3376-4b62-817e-8c6ab2e1e1d2
 
-      # - name: Terraform plan
-      #   run: |
-      #     terraform init
-      #     terraform plan -var-file=variables.tfvars
+      - name: Terraform plan
+        run: |
+          terraform init
+          terraform plan -var-file=variables.tfvars
         
       # - name: Terraform apply
       #   run: |
       #     terraform apply -var-file=variables.tfvars -auto-approve
 
-      - name: Create cosmos collections
-        env:
-           PYTHONPATH: ${{ github.workspace }}/
-        run: |
-          import os 
-          from cosmoscollections import stratosphere_cosmos_collections
-          for stratosphere_cosmos_collection in stratosphere_cosmos_collections:
-              with open('cosmoscollections.sh', 'a') as env_file:
-                  env_file.write('az cosmosdb mongodb collection create -g demorg -a '+stratosphere_cosmos_collection['account_name']+' -d '+stratosphere_cosmos_collection['database_name']+' -n '+stratosphere_cosmos_collection['collection_name']+' --shard '+stratosphere_cosmos_collection['shard_key']+' --idx \'[{\"key\": {\"keys\": [\"$**\"]}}]\' --max-throughput '+stratosphere_cosmos_collection['max_ru']+'\n')
-        shell: python
+      # - name: Create cosmos collections
+      #   env:
+      #      PYTHONPATH: ${{ github.workspace }}/
+      #   run: |
+      #     import os 
+      #     from cosmoscollections import stratosphere_cosmos_collections
+      #     for stratosphere_cosmos_collection in stratosphere_cosmos_collections:
+      #         with open('cosmoscollections.sh', 'a') as env_file:
+      #             env_file.write('az cosmosdb mongodb collection create -g demorg -a '+stratosphere_cosmos_collection['account_name']+' -d '+stratosphere_cosmos_collection['database_name']+' -n '+stratosphere_cosmos_collection['collection_name']+' --shard '+stratosphere_cosmos_collection['shard_key']+' --idx \'[{\"key\": {\"keys\": [\"$**\"]}}]\' --max-throughput '+stratosphere_cosmos_collection['max_ru']+'\n')
+      #   shell: python
 
-      - name: create collection
-        run: |
-          cat cosmoscollections.sh
-          sh cosmoscollections.sh
+      # - name: create collection
+      #   run: |
+      #     cat cosmoscollections.sh
+      #     sh cosmoscollections.sh
 
       # - name: Terraform destroy
       #   run: |
