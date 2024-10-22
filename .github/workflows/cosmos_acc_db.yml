@@ -28,9 +28,9 @@ jobs:
           terraform init
           terraform plan -var-file=variables.tfvars
         
-      - name: Terraform apply
-        run: |
-          terraform apply -var-file=variables.tfvars -auto-approve
+      # - name: Terraform apply
+      #   run: |
+      #     terraform apply -var-file=variables.tfvars -auto-approve
 
       # - name: Create cosmos collections
       #   env:
