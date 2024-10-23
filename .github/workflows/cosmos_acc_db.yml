@@ -49,6 +49,7 @@ jobs:
           sh cosmoscollections.sh
 
       - name: Delete cosmos collections
+        if: always()
         env:
            PYTHONPATH: ${{ github.workspace }}/
         run: |
@@ -60,6 +61,7 @@ jobs:
         shell: python
 
       - name: Delete collection
+        if: always()
         run: |
           cat deletecosmoscollections.sh
           sh deletecosmoscollections.sh
