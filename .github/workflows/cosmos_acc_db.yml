@@ -48,6 +48,22 @@ jobs:
           cat cosmoscollections.sh
           sh cosmoscollections.sh
 
+      - name: Delete cosmos collections
+        env:
+           PYTHONPATH: ${{ github.workspace }}/
+        run: |
+          import os 
+          from deletecosmoscollections import stratosphere_cosmos_collections
+          for stratosphere_cosmos_collection in stratosphere_cosmos_collections:
+              with open('deletecosmoscollections.sh', 'a') as env_file:
+                  env_file.write('az cosmosdb mongodb collection delete -g demorg -a '+stratosphere_cosmos_collection['account_name']+' -d '+stratosphere_cosmos_collection['database_name']+' -n '+stratosphere_cosmos_collection['collection_name']\n')
+        shell: python
+
+      - name: Delete collection
+        run: |
+          cat deletecosmoscollections.sh
+          sh deletecosmoscollections.sh
+
       # - name: Terraform destroy
       #   run: |
       #     terraform destroy -var-file=variables.tfvars -auto-approve
