@@ -44,7 +44,4 @@ resource "azurerm_cosmosdb_mongo_database" "example" {
 #    keys = ["$*"]
 #  }
 
- # lifecycle {
- #   ignore_changes = [index]
- # }
 #}
