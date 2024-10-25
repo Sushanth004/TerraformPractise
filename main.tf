@@ -36,12 +36,4 @@ resource "azurerm_cosmosdb_mongo_database" "example" {
 
 #  shard_key           = "uniqueKey"
 
-#  index {
-#    keys = ["_id"]
-#  }
-
-#  index {
-#    keys = ["$*"]
-#  }
-
 #}
