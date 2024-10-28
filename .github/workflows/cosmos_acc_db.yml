@@ -31,7 +31,7 @@ jobs:
 
       - name: Az commands collections
         run: |
-          az cosmosdb mongodb collection show --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg" --name "collectionA"
+          az cosmosdb mongodb collection throughput show --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --name "collectionA" --resource-group "demorg"
 
       # - name: Terraform plan
       #   run: |
