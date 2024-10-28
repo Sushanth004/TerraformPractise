@@ -44,7 +44,7 @@ for collection in collections_details:
 print(f"Existing Cosmos Collection {existing_cosmos_collections}")
 
 def createCollections(stratosphere_cosmos_collection):
-  command="az cosmosdb mongodb collection throughput update -g demorg -a "+stratosphere_cosmos_collection['account_name']+" -d "+stratosphere_cosmos_collection['database_name']+" -n "+stratosphere_cosmos_collection['collection_name']+" --max-throughput "+stratosphere_cosmos_collection['max_ru']
+  command="az cosmosdb mongodb collection create -g demorg -a "+stratosphere_cosmos_collection['account_name']+" -d "+stratosphere_cosmos_collection['database_name']+" -n "+stratosphere_cosmos_collection['collection_name']+" --shard "+stratosphere_cosmos_collection['shard_key']+" --idx \'[{\"key\": {\"keys\": [\"$**\"]}}]\' --max-throughput "+stratosphere_cosmos_collection['max_ru']
   result = subprocess.run(command, shell=True, capture_output=True, text=True)
   print(result.stdout)
   print(result.stderr)
