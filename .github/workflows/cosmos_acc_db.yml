@@ -29,6 +29,10 @@ jobs:
         run: |
           az cosmosdb mongodb collection list --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg"
 
+      - name: Az commands collections
+        run: |
+          az cosmosdb mongodb collection show --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg" --name "collectionA"
+
       # - name: Terraform plan
       #   run: |
       #     terraform init
