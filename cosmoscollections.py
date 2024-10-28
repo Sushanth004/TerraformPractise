@@ -66,3 +66,5 @@ def iterateCollections():
       updateCollections(stratosphere_cosmos_collection)
     else:
       createCollections(stratosphere_cosmos_collection)
+
+iterateCollections()
