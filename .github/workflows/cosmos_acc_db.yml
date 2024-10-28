@@ -30,10 +30,10 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/
         run: |
           import subprocess
-          import ast
+          import json
           command='az cosmosdb mongodb collection list --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg"'
           result = subprocess.run(command, shell=True, capture_output=True, text=True)
-          list_from_string = ast.literal_eval(result)
+          list_from_string = json.loads(string_repr)
           print(list_from_string)
           print("================")
           print(list_from_string[0])
