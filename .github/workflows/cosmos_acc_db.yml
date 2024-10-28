@@ -32,7 +32,8 @@ jobs:
           import subprocess
           command='az cosmosdb mongodb collection list --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg"'
           result = subprocess.run(command, shell=True, capture_output=True, text=True)
-          print(result)
+          print(result.stdout)
+          print(type(result.stdout))
         shell: python
 
       # - name: Az commands collections
