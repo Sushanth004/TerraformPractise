@@ -26,20 +26,24 @@ jobs:
           az account set --subscription 52217894-3376-4b62-817e-8c6ab2e1e1d2
 
       - name: Az commands
-        env:
-          PYTHONPATH: ${{ github.workspace }}/
         run: |
-          import subprocess
-          import json
-          command='az cosmosdb mongodb collection list --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg"'
-          result = subprocess.run(command, shell=True, capture_output=True, text=True)
-          list_from_string = json.loads(result.stdout)
-          print(list_from_string)
-          print("================")
-          print(list_from_string[0])
-          print("================")
-          print(type(list_from_string))
-        shell: python
+          python cosmoscollections.py
+
+      # - name: Az commands
+      #   env:
+      #     PYTHONPATH: ${{ github.workspace }}/
+      #   run: |
+      #     import subprocess
+      #     import json
+      #     command='az cosmosdb mongodb collection list --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg"'
+      #     result = subprocess.run(command, shell=True, capture_output=True, text=True)
+      #     list_from_string = json.loads(result.stdout)
+      #     print(list_from_string)
+      #     print("================")
+      #     print(list_from_string[0])
+      #     print("================")
+      #     print(type(list_from_string))
+      #   shell: python
 
       # - name: Az commands collections
       #   run: |
