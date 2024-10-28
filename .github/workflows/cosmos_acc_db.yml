@@ -26,12 +26,15 @@ jobs:
           az account set --subscription 52217894-3376-4b62-817e-8c6ab2e1e1d2
 
       - name: Az commands
+        env:
+          PYTHONPATH: ${{ github.workspace }}/
         run: |
           az cosmosdb mongodb collection list --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg"
+        shell: python
 
-      - name: Az commands collections
-        run: |
-          az cosmosdb mongodb collection throughput show --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --name "collectionA" --resource-group "demorg"
+      # - name: Az commands collections
+      #   run: |
+      #     az cosmosdb mongodb collection throughput show --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --name "collectionA" --resource-group "demorg"
 
       # - name: Terraform plan
       #   run: |
