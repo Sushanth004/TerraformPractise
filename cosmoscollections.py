@@ -39,12 +39,12 @@ for stratosphere_cosmos_collection in stratosphere_cosmos_collections:
        collection_throughtput_details_azure = subprocess.run(command, shell=True, capture_output=True, text=True)
        collections_details_azure = json.loads(collection_throughtput_details_azure.stdout)
        print(type(collections_details_azure["resource"]["autoscaleSettings"]["maxThroughput"]))
-       # if stratosphere_cosmos_collection["max_ru"] != collections_details_azure["resource"]["autoscaleSettings"]["maxThroughput"]:
-       #    print(f"Max RUs is different for collection {stratosphere_cosmos_collection['collection_name']}")
-       #    command="az cosmosdb mongodb collection throughput update -g demorg -a "+stratosphere_cosmos_collection['account_name']+" -d "+stratosphere_cosmos_collection['database_name']+" -n "+stratosphere_cosmos_collection['collection_name']+" --max-throughput "+stratosphere_cosmos_collection['max_ru']
-       #    result = subprocess.run(command, shell=True, capture_output=True, text=True)
-       #    print(result.stdout)
-       #    print(result.stderr)
+       if stratosphere_cosmos_collection["max_ru"] != str(collections_details_azure["resource"]["autoscaleSettings"]["maxThroughput"]):
+          print(f"Max RUs is different for collection {stratosphere_cosmos_collection['collection_name']}")
+          command="az cosmosdb mongodb collection throughput update -g demorg -a "+stratosphere_cosmos_collection['account_name']+" -d "+stratosphere_cosmos_collection['database_name']+" -n "+stratosphere_cosmos_collection['collection_name']+" --max-throughput "+stratosphere_cosmos_collection['max_ru']
+          result = subprocess.run(command, shell=True, capture_output=True, text=True)
+          print(result.stdout)
+          print(result.stderr)
   
 #env_file.write('az cosmosdb mongodb collection create -g demorg -a '+stratosphere_cosmos_collection['account_name']+' -d '+stratosphere_cosmos_collection['database_name']+' -n '+stratosphere_cosmos_collection['collection_name']+' --shard '+stratosphere_cosmos_collection['shard_key']+' --idx \'[{\"key\": {\"keys\": [\"$**\"]}}]\' --max-throughput '+stratosphere_cosmos_collection['max_ru']+'\n')
   
