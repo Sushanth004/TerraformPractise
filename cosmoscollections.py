@@ -38,7 +38,7 @@ for stratosphere_cosmos_collection in stratosphere_cosmos_collections:
        command="az cosmosdb mongodb collection throughput show --account-name "+stratosphere_cosmos_collection["account_name"]+" --database-name "+stratosphere_cosmos_collection["database_name"]+" --name "+ stratosphere_cosmos_collection["collection_name"] +" --resource-group demorg"
        collection_throughtput_details_azure = subprocess.run(command, shell=True, capture_output=True, text=True)
        collections_details_azure = json.loads(collection_throughtput_details_azure.stdout)
-       print(collections_details_azure["resource"]["autoscaleSettings"]["maxThroughput"])
+       print(type(collections_details_azure["resource"]["autoscaleSettings"]["maxThroughput"]))
        # if stratosphere_cosmos_collection["max_ru"] != collections_details_azure["resource"]["autoscaleSettings"]["maxThroughput"]:
        #    print(f"Max RUs is different for collection {stratosphere_cosmos_collection['collection_name']}")
        #    command="az cosmosdb mongodb collection throughput update -g demorg -a "+stratosphere_cosmos_collection['account_name']+" -d "+stratosphere_cosmos_collection['database_name']+" -n "+stratosphere_cosmos_collection['collection_name']+" --max-throughput "+stratosphere_cosmos_collection['max_ru']
