@@ -25,6 +25,14 @@ jobs:
           az login --service-principal -u ${{ secrets.CLIENT_ID }} -p ${{ secrets.CLIENT_SECRET }} --tenant ${{ secrets.TENANT_ID }}
           az account set --subscription 52217894-3376-4b62-817e-8c6ab2e1e1d2
 
+      - name: Read json
+        env:
+           PYTHONPATH: ${{ github.workspace }}/
+        run: |
+          import json
+          with open(config.json, 'r') as file:
+            print(json.load(file))
+
       # - name: Az commands
       #   run: |
       #     python cosmoscollections.py
