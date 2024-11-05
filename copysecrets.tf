@@ -1,8 +1,3 @@
-resource "azurerm_resource_group" "default" {
-  name     = "demorg"
-  location = "East US 2"
-}
-
 resource "azurerm_eventgrid_topic" "test" {
   name                = "my-eventgrid-topic"
   location            = "East US 2"
