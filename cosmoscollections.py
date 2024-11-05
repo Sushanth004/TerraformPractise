@@ -1,16 +1,16 @@
 
-import os 
-import subprocess
-import json
+# import os 
+# import subprocess
+# import json
 
-import sys
+# import sys
 
-if len(sys.argv) > 1:
-    # Access the first argument (after the script name)
-    stratosphere_cosmos_collections = sys.argv[1]
-    print(f"Stratosphere cosmos collections:  {stratosphere_cosmos_collections}!")
-else:
-    print("No Stratosphere cosmos collections provided!")
+# if len(sys.argv) > 1:
+#     # Access the first argument (after the script name)
+#     stratosphere_cosmos_collections = sys.argv[1]
+#     print(f"Stratosphere cosmos collections:  {stratosphere_cosmos_collections}!")
+# else:
+#     print("No Stratosphere cosmos collections provided!")
 
 # command='az cosmosdb mongodb collection list --account-name "cosmosacc0044" --database-name "cosmos-mongo-db" --resource-group "demorg"'
 # cosmos_list = subprocess.run(command, shell=True, capture_output=True, text=True)
