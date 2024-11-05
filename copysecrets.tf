@@ -5,6 +5,7 @@ resource "azurerm_key_vault" "keyvaultA" {
   enabled_for_disk_encryption = true
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
+  tenant_id                   = "679d0ee1-0b65-451d-8740-b1b0991fc8fb"
 
   sku_name = "standard"
 }
@@ -16,6 +17,7 @@ resource "azurerm_key_vault" "keyvaultB" {
   enabled_for_disk_encryption = true
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
+  tenant_id                   = "679d0ee1-0b65-451d-8740-b1b0991fc8fb"
 
   sku_name = "standard"
 }
